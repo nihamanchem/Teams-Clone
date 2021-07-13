@@ -72,6 +72,7 @@ While going through the code, let me brief you as to what part of kind you can f
  Code related to the change in screen and buttons upon clicking various buttons ,and contact between one screen to another is being handled in this file.
 
 VULNERABILITIES OF THE PROJECT:
+- In-order for the icons in the footer to change properly, they have to be clicked exactly at the center.
 - When the app is reloaded, in-call messages are lost.
 - When the participant's video is exited from the picture-in-picture window, the restored video gets stuck and the app has to be reloaded again.
 - Doesn't work properly under low network bandwidth.
