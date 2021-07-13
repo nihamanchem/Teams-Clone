@@ -1,11 +1,13 @@
 let express = require( 'express' );
 let app = express();
+
 let server = require( 'http' ).Server( app );
+
 let io = require( 'socket.io' )( server );
 let stream = require( './webstream/stream' );
 let path = require( 'path' );
-let favicon = require( 'serve-favicon' );
 
+let favicon = require( 'serve-favicon' );
 app.use( favicon( path.join( __dirname, 'logo.png' ) ) );
 app.use( '/components', express.static( path.join( __dirname, 'components' ) ) );
 
