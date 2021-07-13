@@ -3,6 +3,10 @@
  * @author Bryan Woods
  * @url https://github.com/bryanwoods/autolink-js
  */
+
+// Javascript file for random meeting link generation
+// It takes a string of text, finds URLs within it, and hyperlinks them.
+
  ( function () {
     var autoLink,
       slice = [].slice;
