@@ -19,14 +19,16 @@
         <script src='components/javascript/autolink.js'></script>
     </head>
 
-    <body style="background-color: #202124;">
+    <body class="body">
 
         <!-- Header -->
-        <nav class="navbar fixed-top rounded-0 d-print-none" style="background-color: #464775;">
-            <div class="text-white" style="margin-left: 10px;"><b>Basic Teams Clone</b></div>
-            <button class="btn btn-sm text-white pull-right btn-no-effect" id='toggle-chat-pane'>
-                <i class="fa fa-comment"></i> <span class="badge badge-danger very-small font-weight-lighter" id='new-chat-notification' hidden>New</span>
-            </button>
+        <nav class="navbar fixed-top rounded-0 d-print-none header-navbar">
+            <div class="text-white headertext"><b>Basic Teams Clone</b></div>
+            <div class="pull-right room-comm" hidden>
+                <button class="btn btn-sm text-white pull-right btn-no-effect" id='toggle-chat-pane'>
+                    <i class="fa fa-comment"></i> <span class="badge badge-danger very-small font-weight-lighter" id='new-chat-notification' hidden>New</span>
+                </button>
+            </div>
         </nav>
 
         <!-- Container for screen recording -->
@@ -52,36 +54,37 @@
         
         <!-- Screen to generate meeting ID -->
 
-        <div class="container-fluid col-12 col-md-6 offset-md-3 mb-3" id='room-create' hidden style="margin-top: 75px; border-radius: 10px; background-color: #dadce0">
+        <div class="container-fluid col-12 col-md-6 offset-md-3 mb-3 otherscreen" id='room-create' hidden>
             <div class="row">
                 <div class="col-12 h2 mt-5 text-center">Start an instant meeting</div>
             </div>
+
             <div class="row mt-2">
                 <div class="col-12 text-center">
                     <span class="form-text small text-danger" id='err-msg'></span>
                 </div>
 
                 <div class="col-12 col-md-6 offset-md-3 mb-3">
-                    <label for="room-name">Meeting Name:</label>
-                    <input type="text" id='room-name' class="form-control rounded-0" placeholder="Type suitable meeting name">
+                    <label for="meeting-name">Meeting Name:</label>
+                    <input type="text" id='meeting-name' class="form-control rounded-0" placeholder="Type suitable meeting name">
                 </div>
 
                 <div class="col-12 col-md-6 offset-md-3 mb-3">
-                    <label for="your-name">Host Name:</label>
-                    <input type="text" id='your-name' class="form-control rounded-0" placeholder="Type your name">
+                    <label for="host-name">Host Name:</label>
+                    <input type="text" id='host-name' class="form-control rounded-0" placeholder="Type your name">
                 </div>
 
                 <div class="col-12 col-md-6 offset-md-3 mb-3">
                     <button id='create-room' class="btn btn-block rounded-0 btn-dark">Generate Meeting ID</button>
                 </div>
 
-                <div class="col-12 col-md-4 offset-md-4 mb-3" id='room-created'></div>
+                <div class="col-12 col-md-4 offset-md-4 mb-3" id='room-created'></div> <!-- Appears when meeting ID is generated-->
             </div>
         </div>
 
         <!-- Screen for attendants to join -->
 
-        <div class="container-fluid col-12 col-md-6 offset-md-3 mb-3" id='username-set' hidden style="margin-top: 75px; border-radius: 10px; background-color: #dadce0">
+        <div class="container-fluid col-12 col-md-6 offset-md-3 mb-3 otherscreen" id='username-set' hidden >
             <div class="row">
                 <div class="col-12 h2 mt-5 text-center">Attendee's Details</div>
             </div>
@@ -96,8 +99,8 @@
                     <input type="text" id='username' class="form-control rounded-0" placeholder="Type your Name">
                 </div>
 
-                <div class="col-12 col-md-6 offset-md-3 mb-3" style="height: 100px;">
-                    <button id='enter-room' class="btn btn-block rounded-0 btn-dark">Enter Meeting</button>
+                <div class="col-12 col-md-6 offset-md-3 mb-3 entermeetbutton">
+                    <button id='enter-meeting' class="btn btn-block rounded-0 btn-dark">Enter Meeting</button>
                 </div>
             </div>
         </div>
@@ -105,22 +108,27 @@
         <!-- Video streaming Screen-->
 
         <div class="container-fluid room-comm" hidden >
+            <!-- Host's video -->
             <div class="row">
                 <video class="local-video mirror-mode" id='local' volume='0' autoplay muted></video>
             </div>
             
             <div class="row">
+                <!-- Attendee's video -->
                 <div class="col-md-12 main" id='main-section'>                    
                     <div class="row mt-2 mb-2" id='videos'></div>
                 </div>
-            <!-- Chat panel -->
+
+                <!-- Chat panel -->
                 <div class="col-md-3 chat-col d-print-none mb-2"  id='chat-pane' hidden>
                     <div class="row">
                         <div class="col-12 text-center h2 mb-3">In-Call Messages</div>
                     </div>
 
+                    <!-- Meeting attendants' chat messages -->
                     <div id='chat-messages'></div>
 
+                    <!-- Chat Box for sending messages -->
                     <div class="row sendchat">
                         <textarea id='chat-input' class="form-control rounded-0 chat-box border-info" rows='3' placeholder="Send a message to everyone..." ></textarea>
                     </div>
@@ -129,26 +137,26 @@
         </div>
 
         <!-- Footer -->
-
+        <!-- Contains additional functionalities -->
         <nav class="navbar fixed-bottom bg-dark">
             <div class="room-comm" hidden style="margin: auto;">
-                <button class="btn btn-sm btn-no-effect bottombutton" id='toggle-video' title="Hide Video" >
+                <button class="btn btn-sm btn-no-effect bottombutton" id='toggle-video' title="Hide Video" > <!--ON and OFF video-->
                     <i class="fa fa-video text-white"></i>
                 </button>
 
-                <button class="btn btn-sm btn-no-effect bottombutton" id='toggle-mute' title="Mute">
+                <button class="btn btn-sm btn-no-effect bottombutton" id='toggle-mute' title="Mute"> <!-- Mute and unmute Audio -->
                         <i class="fa fa-microphone-alt text-white"></i>  
                 </button>
     
-                <button class="btn btn-sm btn-no-effect bottombutton" id='share-screen' title="Share screen">
+                <button class="btn btn-sm btn-no-effect bottombutton" id='share-screen' title="Share screen"> <!-- Share screen icon -->
                     <i class="fa fa-desktop text-white"></i>
                 </button>
     
-                <button class="btn btn-sm btn-no-effect bottombutton" id='record' title="Record">
+                <button class="btn btn-sm btn-no-effect bottombutton" id='record' title="Record"> <!-- Record option -->
                     <i class="fa fa-dot-circle text-white"></i>
                 </button>
     
-                <button class="btn btn-sm btn-no-effect text-white bottombutton">
+                <button class="btn btn-sm btn-no-effect text-white bottombutton"> <!-- Ends Call -->
                     <a href="/" class="text-white text-decoration-none"><i class="fa fa-phone-slash text-danger" title="End Call"></i></a>
                 </button>
             </div>
