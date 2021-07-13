@@ -1,3 +1,25 @@
+.body{
+    background-color: #202124;
+}
+
+.header-navbar {
+    background-color: #464775;
+}
+
+.headertext {
+    margin-left: 10px;
+}
+
+.otherscreen {
+    margin-top: 75px;
+    border-radius: 10px;
+    background-color: #dadce0
+}
+
+.entermeetbutton{
+    height: 100px;
+}
+
 .chat-col{
     right: -100vw;
     bottom: 0;
@@ -63,17 +85,17 @@
     overflow-x: scroll;
 }
 
+/* Attendees' video panel CSS */
 .main{
     padding-top: 40px;
 }
 
-
+/* Attendees' video CSS */
 .remote-video{
     width:100%;
     height:auto;
     max-height: 90vh;
 }
-
 
 .remote-video-controls{
     position:absolute;
@@ -92,7 +114,7 @@
     visibility: visible;
 }
 
-
+/* Host's video CSS */
 .local-video{
     bottom: 65px;
     left: 0;
@@ -147,12 +169,6 @@
     z-index: 100;
 }
 
-
-.pointer{
-    cursor: pointer;
-}
-
-
 .record-option{
     height: 200px;
     border-radius: 5px;
@@ -163,6 +179,7 @@
     background-color: aliceblue;
 }
 
+/* CSS for container of screen recording */
 .custom-modal {
     display: none;
     position: fixed;
@@ -183,6 +200,7 @@
     width: 60%;
 }
 
+/* Footer Button's CSS */
 .bottombutton {
     width:48px; 
     height: 48px; 
