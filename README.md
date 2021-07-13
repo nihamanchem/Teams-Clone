@@ -27,23 +27,23 @@ The present project has been built with INDIVIDUAL AGILE SCRUM METHODOLOGY
 As u can see. I have divided my work into the following sprints initially and each problem I faced in one sprint I tried to resolve it in the next one along with its own targets.
 
 # INITIAL PLAN
-Sprint 1: 
+- Sprint 1: 
 Link generation and connection between peers.
-Sprint 2: 
+- Sprint 2: 
 Flaws in the first sprint 1 have been rectified by changing the approach of generating the link for meeting.
 Toggle video and audio have to be implemented
-Sprint 3:
+- Sprint 3:
 CSS of the site has to be improved and in-call chat functionality has to be implemented.
-Sprint 4:
+- Sprint 4:
 Changes were accommodated satisfactorily.
 Picture-in-picture functionality to be checked.
 
 # PROBLEMS
-Sprint 1: 
+- Sprint 1: 
 Flaws surfaced and proper link generation was not being possible.
-Sprint 2: 
+- Sprint 2: 
 Toggle video and audio buttons worked well and share screen and record functionalities documentation was also done.
-Sprint 3:
+- Sprint 3:
 Minor CSS changes were not being adjusted.
 
 It is evident that the app can be improved a thousand fold by adding new features to it. So, I have left a small comment at the start of each block so that further development in the project becomes convenient. 
